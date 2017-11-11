@@ -2,165 +2,223 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>后台管理系统-首页</title>
-    <!-- 引入bootstrap库 -->
-    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
-    <!-- 引入NProgress -->
-    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
-    <!-- 引入表单验证插件的css -->
-    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
-    <!-- 引入当前页面的css -->
-    <link rel="stylesheet" href="./css/admin.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘云购后台管理系统</title>
+  <!-- 引入bootstrap库 -->
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+  <!-- 引入NProgress -->
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <!-- 引入表单验证插件的css -->
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <!-- 引入当前页面的css -->
+  <link rel="stylesheet" href="./css/admin.css">
+  <style>
+    th {
+      text-align: center;
+    }
+
+    .fileupload {
+      position: relative;
+    }
+
+    .fileupload input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- 退出的模态框Modal -->
-    <div class="modal fade" id="myModal-checkout" tabindex="-2">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="alert alert-danger">
-                        <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
-                    </p>
-
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-default" data-dismiss="modal">取消</a>
-                    <a class="btn btn-primary" href="login.html">确定</a>
-                </div>
-            </div>
-        </div>
+  <!-- 左侧 -->
+  <aside class="lt-aside">
+    <!-- brand -->
+    <div class="brand">
+      <a href="./index.html">
+        ITCAST
+      </a>
     </div>
-    <!-- 添加商品的模态框 -->
-    <div class="modal fade" id="myModal-addProduct" tabindex="-2">
-        <div class="modal-dialog modal-sm-10">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel">编辑商品</h4>
-                </div>
-                <div class="modal-body">
-                    <input class="form-control" type="text" placeholder="请输入商品名称">
-                    <input class="form-control" type="textarea" placeholder="请输入商品描述">
-                    <input class="form-control" type="text" placeholder="请输入商品库存">
-                    <input class="form-control" type="text" placeholder="请输入商品价格">
-                    <input class="form-control" type="text" placeholder="请输入商品原价">
-                    <input class="form-control" type="text" placeholder="请输入商品尺码">
-
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-default" data-dismiss="modal">取消</a>
-                    <a class="btn btn-primary" href="login.html">确定</a>
-                </div>
-            </div>
-        </div>
+    <!-- user -->
+    <div class="user">
+      <img src="./images/default.png" alt="">
+      <span>超级管理员</span>
     </div>
-    <!-- 左侧边栏 -->
-    <aside class="lt-aside">
-        <!-- brand -->
-        <div class="brand">
-            <a href="javascript:;">ITCAST</a>
+    <!-- menu -->
+    <ul class="menu">
+      <li>
+        <a href="./userManage.html">
+          <i class="glyphicon glyphicon-user"></i> 用户管理
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <i class="glyphicon glyphicon-list"></i> 分类管理
+        </a>
+        <div class="child">
+          <a href="./categoryFirst.html">一级分类</a>
+          <a href="./categorySecond.html">二级分类</a>
         </div>
-        <!-- user -->
-        <div class="user">
-            <img src="images/default.png" alt="">
-            <span>超级管理员</span>
-        </div>
-        <!-- 菜单 -->
-        <div class="menu">
-            <ul>
-                <li>
-                    <a href="javascript:;">
-                        <span class="glyphicon glyphicon-user">用户管理</span>
-                    </a>
-                </li>
-                <li>
-                    <a data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="glyphicon glyphicon-list"></i> 分类管理
-                    </a>
-                    <div class="collapse child" id="collapseExample">
-                        <a href="javascript:;">一级分类</a>
-                        <a href="javascript:;">二级分类</a>
-                    </div>
-                </li>
-                <li>
-                    <a href="javascript:;">
-                        <span class="glyphicon glyphicon-user">商品管理</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+      </li>
+      <li>
+        <a href="./productManage.html">
+          <i class="glyphicon glyphicon-tags"></i> 商品管理
+        </a>
+      </li>
+    </ul>
+  </aside>
+  <!-- 右侧 -->
+  <section class="lt-section">
+    <!-- 顶部导航 -->
+    <div class="lt-nav">
+      <a data-menu href="javascript:;">
+        <i class="glyphicon glyphicon-align-justify"></i>
+      </a>
+      <a data-logout data-toggle="modal" href="#logout-modal">
+        <i class="glyphicon glyphicon-log-out"></i>
+      </a>
+    </div>
 
-    </aside>
-    <!-- 右侧内容 -->
-    <section class="lt-section">
-        <nav class="lt-nav">
-            <a data-menu href="javascript:;">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </a>
-            <a data-logout href="#myModal-checkout" data-toggle="modal">
-                <span class="glyphicon glyphicon-log-out"></span>
-            </a>
-        </nav>
+    <div class="lt-content">
+      <div class="container-fluid">
+        <!-- 路径导航 -->
+        <ol class="breadcrumb">
+          <li>
+            <a href="#">管理系统</a>
+          </li>
+          <li class="active">商品管理</li>
+
+        </ol>
         <div class="lt-content">
-            <div class="container-fluid">
-                <!-- 路径导航 -->
-                <ol class="breadcrumb">
-                    <li>
-                        <a href="#">管理系统</a>
-                    </li>
-                    <li class="active">商品管理</li>
-                </ol>
-                <div class="lt-addProduct">
-                    <button class="btn btn-default add" type="submit" href="#myModal-addProduct" data-toggle="modal">添加商品</button>
-                </div>
-                <div class="lt-usermanage">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th width="10%">序号</th>
-                                <th width="25%">商品名称</th>
-                                <th width="20%">商品描述</th>
-                                <th width="10%">商品库存</th>
-                                <th width="10%">商品尺寸</th>
-                                <th width="10%">商品状态</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-
-                    </table>
-                </div>
-            </div>
+          <a href="#first-modal" data-toggle="modal" class="btn btn-default">添加商品</a>
+          <table class="table table-bordered table-hover" style="margin-top: 20px">
+            <thead>
+              <tr class="text-center">
+                <th>序号</th>
+                <th>商品名称</th>
+                <th>商品描述</th>
+                <th>商品库存</th>
+                <th>商品尺寸</th>
+                <th>商品状态</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-center">
+                <td>1</td>
+                <td>【莹恋】MIZUNO美津浓V1GA159002乒乓球鞋男鞋女鞋室内综合训练鞋</td>
+                <td>描述</td>
+                <td>44</td>
+                <td>35-56</td>
+                <td>以上架</td>
+                <td>
+                  <a href="javascript:;" class="btn btn-danger">下架</a>
+                  <a href="javascript:;" class="btn btn-primary">编辑</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="page">
+            <ul class="pagination"></ul>
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-    </section>
+  <div class="modal fade" id="first-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">编辑商品</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label class="sr-only" for="proName"></label>
+              <input type="text" class="form-control" name="proName" id="proName" placeholder="请输入商品名称">
+            </div>
 
+            <div class="form-group">
+              <label class="sr-only" for="proDesc"></label>
+              <textarea type="text" class="form-control" name="proDesc" id="proDesc" placeholder="请输入商品描述"></textarea>
+            </div>
 
-    <!-- 引入jquery -->
-    <script src="./lib/jquery/jquery.min.js"></script>
-    <!-- 引入bootstrap的插件 -->
-    <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-    <!-- 引入echarts库 -->
-    <script src="./lib/echarts/echarts.min.js"></script>
-    <!-- 引入表单验证的插件 -->
-    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-    <!-- 引入进度条插件 -->
-    <script src="./lib/nprogress/nprogress.js"></script>
-    <!-- 引入admin文件 -->
-    <script src="./js/admin.js"></script>
-    <!-- 引入index.js -->
-    <!-- <script src="./js/index.js"></script> -->
+            <div class="form-group">
+              <label class="sr-only" for="num"></label>
+              <input type="text" class="form-control" name="num" id="num" placeholder="请输入商品库存">
+            </div>
+
+            <div class="form-group">
+              <label class="sr-only" for="price"></label>
+              <input type="text" class="form-control" name="price" id="price" placeholder="请输入商品价格">
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="oldPrice"></label>
+              <input type="text" class="form-control" name="oldPrice" id="oldPrice" placeholder="请输入商品原价">
+            </div>
+
+            <div class="form-group">
+              <label class="sr-only" for="size"></label>
+              <input type="text" class="form-control" name="size" id="size" placeholder="请输入商品尺码">
+            </div>
+
+            <div class="form-group fileupload">
+              <label class="sr-only" for="pic"></label>
+              <a href="javascript:;" class="btn btn-default">上传图片</a>
+              <input type="file" class="form-control" name="pic" id="pic" placeholder="请输入商品尺码">
+              <span>提示： 必须上传三个图片</span>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" id="save" class="btn btn-primary">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/template" id="product-template">
+    <%for(var i= 0;i< rows.length;i++){%>
+
+    <tr class="text-center">
+        <td><%=(page-1)*size+i+1%></td>
+        <td><%=rows[i].proName%></td>
+        <td><%=rows[i].proDesc%></td>
+        <td><%=rows[i].num%></td>
+        <td><%=rows[i].size%></td>
+        <td><%=rows[i].statu==1?'已上架':'下架'%></td>
+        <td>
+          <a href="javascript:;" data-id="<%=rows[i].id%>" data-brand-id="<%=rows[i].brandId%>" class="btn btn-danger">下架</a>
+          <a href="javascript:;" data-id="<%=rows[i].id%>" data-brand-id="<%=rows[i].brandId%>" class="btn btn-primary">编辑</a>
+        </td>
+      </tr>
+      <%}%>
+  </script>
+
+  <!-- 引入jquery -->
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <!-- 引入bootstrap的插件 -->
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <!-- 引入模板引擎 -->
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入表单验证的插件 -->
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <!-- 引入分页插件 -->
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <!-- 引入进度条插件 -->
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <!-- 引入admin文件 -->
+  <script src="./js/admin.js"></script>
+  <!-- 引入index.js -->
+  <script src="./js/productManage.js"></script>
 </body>
 
 </html>

@@ -25,3 +25,6 @@ $('[data-menu]').on('click', function () {
     $('.lt-aside').toggle();
     $('.lt-section').toggleClass('menu');
 })
+
+//点击退出按钮 ，弹出遮罩层，发送请求 退到登录页
+$('#myModal-checkout').on('click', 'btn-')
